@@ -1,0 +1,17 @@
+
+1584021223;Gian;Teste
+1584021227;Gian;Teste
+1584021234;Gian;Teste
+1584021315;Gian;Teste
+1584021812;Client;Teste
+1584021816;Client;asfdsadasfd
+1584021822;Client;sdfsdfgsdg
+1584022258;Client;Testando
+1584022269;Client;bocó
+1584022298;Client;teste
+1584022336;Client;eedeee
+1584022340;Client;jjjjj
+1584022342;Client;kkkk
+1584022345;Client;sadsa
+1584022372;Client;(*-*)
+1584022396;Client;cobó

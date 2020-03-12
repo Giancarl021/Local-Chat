@@ -1,0 +1,120 @@
+:root {
+    --bg-main: #222;
+    --bg-header: #333;
+
+
+    --fg-main: #ddd;
+    --fg-header: #fff;
+
+    --header-height: 5%;
+}
+
+::selection {
+    background-color: #fff3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--fg-main);
+    font-family: 'Consolas', monospace;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-main);
+    display: grid;
+    grid-template-rows: var(--header-height) calc(100% - var(--header-height));
+    grid-template-columns: 80% 20%;
+}
+
+header {
+    background-color: var(--bg-header);
+    color: var(--fg-header);
+    font-size: 2em;
+    grid-column: 1/span 2;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PC Version */
+
+#chat-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 90% 10%;
+}
+
+#message-container {
+    background-color: #0003;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+#message-container input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: background-color .3s;
+    font-size: 1.8em;
+    padding: 10px;
+    background-color: #0001;
+}
+
+#message-container input:focus {
+    background-color: #0003;
+    outline: none;
+    border: none;
+}
+
+#send-message {
+    background-color: #fff2;
+    outline: none;
+    border: none;
+    transition: background-color .15s;
+    font-size: 2em;
+}
+
+#send-message:hover {
+    background-color: #fff4;
+}
+
+#send-message:active {
+    background-color: #fff6;
+}
+
+#setup-panel {
+    background-color: #0001;
+}
+
+#chat-panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.message {
+    display: block;
+    width: calc(100% - 10px);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #fff2;
+}
+
+.message span {
+    font-size: .8em;
+    color: #ccc;
+}
+
+.message-text {
+    font-size: 1.2em;
+}
