@@ -148,6 +148,10 @@ input:focus {
     font-size: 1.5em;
 }
 
+#nickname:focus {
+    background: #0006;
+}
+
 ::-webkit-scrollbar {
     width: 0;
 }
