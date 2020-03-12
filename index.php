@@ -25,7 +25,9 @@
         </div>
     </section>
     <section id="setup-panel">
-
+        <div class="setup-container">
+            <input type="text" placeholder="Nickname" id="nickname"/>
+        </div>
     </section>
 </body>
 

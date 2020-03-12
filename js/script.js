@@ -32,7 +32,8 @@ async function delay(milliseconds) {
 function sendMessage() {
     const input = document.getElementById('message-field');
     const message = input.value;
-    ajax(`http://${SERVER_IP}/Chat/php/message.php`, `author=Client&message=${message}`);
+    const nickname = document.getElementById('nickname').value || 'Anônimo';
+    ajax(`http://${SERVER_IP}/Chat/php/message.php`, `author=${nickname}&message=${message}`);
     input.value = '';
 }
 
