@@ -1,5 +1,7 @@
 let lastData, lastUpdate;
 const updateTimeRate = 10;
+const SERVER_IP = window.location.href.replace(/\?.*/g, '');
+
 
 async function ajax(url, parameters = '') {
     return new Promise(resolve => {
@@ -33,12 +35,12 @@ function sendMessage() {
     const input = document.getElementById('message-field');
     const message = input.value;
     const nickname = document.getElementById('nickname').value || 'Anônimo';
-    ajax(`http://${SERVER_IP}/Chat/php/message.php`, `author=${nickname}&message=${message}`);
+    ajax(`${SERVER_IP}/php/message.php`, `author=${nickname}&message=${message}`);
     input.value = '';
 }
 
 async function getData(timestamp) {
-    const data = JSON.parse(await ajax(`http://${SERVER_IP}/Chat/php/update.php`));
+    const data = JSON.parse(await ajax(`${SERVER_IP}/php/update.php`));
 
     const diff = lastData ? data.filter(message => !lastData.map(message => message.timestamp).includes(message.timestamp)) : data;
     appendMessages(diff);
@@ -56,7 +58,7 @@ async function getData(timestamp) {
 }
 
 async function updateListener() {
-    const timestamp = await ajax(`http://${SERVER_IP}/Chat/php/status.php`);
+    const timestamp = await ajax(`${SERVER_IP}/php/status.php`);
     if (lastUpdate !== timestamp) await getData(timestamp);
     setTimeout(updateListener, updateTimeRate);
 }
