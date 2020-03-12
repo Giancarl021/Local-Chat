@@ -8,10 +8,17 @@
     require("FileHandler.php");
     require("FileParser.php");
 
+    $time = getTime();
+
     $fh = new FileHandler(chat_path, "", true);
     $fp = new FileParser($fh);
-    $fp->addRow(["timestamp" => time(), "author" => $_GET["author"], "message" => $_GET["message"]]);
+    $fp->addRow(["timestamp" => $time, "author" => $_GET["author"], "message" => $_GET["message"]]);
 
-    $time = time();
     $fh = new FileHandler(update_path, "", true);
     $fh->write($time, true);
+
+    function getTime() {
+        $tmp = explode(" ", microtime());
+        $tmp[0] = substr($tmp[0], 2);
+        return implode("", array_reverse($tmp));
+    }
