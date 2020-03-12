@@ -68,12 +68,56 @@ async function updateListener() {
     setTimeout(updateListener, updateTimeRate);
 }
 
+function saveNickname() {
+    const nickname = document.getElementById('nickname').value;
+    if(!nickname) {
+        console.log(getDate('past'), getDate('future'), getDate('present'));
+        document.cookie = `nickname=; expires=${getDate('past').toString().replace(/\s\(.*?\)/g, '')}`;
+    } else {
+        document.cookie = `nickname=${nickname}; expires=${getDate('future').toString().replace(/\s\(.*?\)/g, '')}`;
+    }
+
+    function getDate(position = 'present') {
+        const now = new Date(Date.now());
+        let r;
+        switch(position.toLowerCase()) {
+            case 'past':
+                now.setFullYear(now.getFullYear() - 1);
+                r = new Date(now);
+                break;
+            case 'present':
+                r = now;
+                break;
+            case 'future':
+                now.setHours(now.getHours() + 8);
+                r = new Date(now);
+                break;
+        }
+        return r;
+    }
+}
+
+function loadNickname() {
+    const input = document.getElementById('nickname');
+    let nickname;
+    if(document.cookie.includes('nickname')) {
+        const cookies = decodeURIComponent(document.cookie).split(';');
+        for(const cookie of cookies) {
+            if(cookie.includes('nickname=')) {
+                nickname = cookie.replace(/nickname\=/, '');
+            }
+        }
+    }
+    input.value = nickname || '';
+}
+
 function init() {
     const digitDivs = document.getElementsByClassName('digit-text');
     for (const div of digitDivs) {
         digitFx(div, div.getAttribute('data-text'), div.getAttribute('data-milliseconds'), div.getAttribute('data-start')).catch(console.log);
     }
     updateListener();
+    loadNickname();
 }
 
 document.addEventListener('DOMContentLoaded', init);
