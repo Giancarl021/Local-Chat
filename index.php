@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Site</title>
+    <title>O Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <header class="flex-center digit-text" data-text=">> Lixeira Chat <<" data-milliseconds="80"></header>
+    <header class="flex-center digit-text" data-text=">>> O Chat <<<" data-milliseconds="80"></header>
     <section id="chat-container">
         <div id="chat-panel"></div>
         <div id="message-container">

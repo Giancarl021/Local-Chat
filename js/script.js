@@ -1,5 +1,5 @@
 let lastData, lastUpdate;
-const updateTimeRate = 100;
+const updateTimeRate = 10;
 
 async function ajax(url, parameters = '') {
     return new Promise(resolve => {
@@ -51,6 +51,7 @@ async function getData(timestamp) {
         for(const message of messages) {
             panel.insertAdjacentHTML('beforeend', `<div class="message"><span>${message.author}</span><div class="message-text">${message.message}</div></div>`);
         }
+        panel.scrollTo(0, panel.scrollHeight);
     }
 }
 

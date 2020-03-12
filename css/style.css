@@ -107,7 +107,7 @@ input:focus {
     transition: background-color .3s;
 }
 
-.setup-container > * {
+.setup-container>* {
     display: block;
     width: 100%;
     margin: 5px 0;
@@ -123,6 +123,7 @@ input:focus {
     justify-content: flex-start;
     flex-direction: column;
     overflow: auto;
+    padding: 5px 0;
 }
 
 .message {
@@ -145,4 +146,8 @@ input:focus {
 
 #nickname {
     font-size: 1.5em;
+}
+
+::-webkit-scrollbar {
+    width: 0;
 }
