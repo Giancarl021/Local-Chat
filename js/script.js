@@ -42,7 +42,12 @@ function sendMessage() {
 async function getData(timestamp) {
     const data = JSON.parse(await ajax(`${SERVER_IP}/php/update.php`));
 
-    const diff = lastData ? data.filter(message => !lastData.map(message => message.timestamp).includes(message.timestamp)) : data;
+    const diff = lastData ? data.filter(message => {
+        for(const item of lastData) {
+            if(item.timestamp === message.timestamp && item.author === message.author) return false;
+        }
+        return true;
+    }) : data;
     appendMessages(diff);
 
     lastData = data;
