@@ -17,13 +17,13 @@
     <section id="chat-container">
         <div id="chat-panel"></div>
         <div id="message-container">
-            <input id="message-field" onkeydown="event.key === 'Enter' && sendMessage()"/>
+            <input spellcheck="false" id="message-field" onkeydown="event.key === 'Enter' && sendMessage()"/>
             <button type="button" id="send-message" onclick="sendMessage()">></button>
         </div>
     </section>
     <section id="setup-panel">
         <div class="setup-container">
-            <input type="text" placeholder="Nickname" id="nickname" onblur="saveNickname()"/>
+            <input spellcheck="false" type="text" placeholder="Nickname" id="nickname" onblur="saveNickname()"/>
         </div>
     </section>
 </body>

@@ -5,7 +5,7 @@
     if(!defined("chat_path")) define("chat_path", "../chat.txt");
     
     $fh = new FileHandler(chat_path, "", true);
-    $fp = new FileParser($fh);
+    $fp = new FileParser($fh, PHP_EOL, ";");
 
     $raw = $fp->loadData();
 

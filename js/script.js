@@ -1,5 +1,5 @@
 let lastData, lastUpdate;
-const updateTimeRate = 10;
+const updateTimeRate = 100;
 const SERVER_IP = window.location.href.replace(/\?.*/g, '');
 
 async function ajax(url, parameters = '') {
@@ -32,9 +32,10 @@ async function delay(milliseconds) {
 
 function sendMessage() {
     const input = document.getElementById('message-field');
-    const message = input.value;
+    const message = encodeURIComponent(input.value);
+    console.log(message);
     if(!message.length) return;
-    const nickname = document.getElementById('nickname').value || 'Anônimo';
+    const nickname = encodeURIComponent(document.getElementById('nickname').value || 'Anônimo');
     ajax(`${SERVER_IP}/php/message.php`, `author=${nickname}&message=${message}`);
     input.value = '';
 }
@@ -121,3 +122,9 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Console Interaction
+
+function setUpdateSpeed(milliseconds) {
+    updateTimeRate = milliseconds;
+}

@@ -11,7 +11,7 @@
     $time = getTime();
 
     $fh = new FileHandler(chat_path, "", true);
-    $fp = new FileParser($fh);
+    $fp = new FileParser($fh, PHP_EOL, ";");
     $fp->addRow(["timestamp" => $time, "author" => $_GET["author"], "message" => $_GET["message"]]);
 
     $fh = new FileHandler(update_path, "", true);
